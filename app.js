@@ -135,6 +135,12 @@ function startUsage() {
 function lock(msg) {
   lockMsg.textContent = msg;
   lock.classList.remove("hidden");
+  lock.style.pointerEvents = "none"; // permite interactuar con la app
+}
+function hardLock(msg) {
+  lockMsg.textContent = msg;
+  lock.classList.remove("hidden");
+  lock.style.pointerEvents = "auto"; // bloqueo total
 }
 
 function hideLock() {
