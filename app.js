@@ -39,6 +39,18 @@ function checkTimeManipulation() {
   save();
   return false;
 }
+const lockScreen = document.getElementById("lockScreen");
+
+lockScreen.addEventListener("touchstart", () => {
+  pressTimer = setTimeout(() => {
+    locked = false;
+    lockScreen.style.display = "none";
+  }, 3000);
+});
+
+lockScreen.addEventListener("touchend", () => {
+  clearTimeout(pressTimer);
+});
 
 /* ───────────── RESET DIARIO DURO ───────────── */
 function dailyCheck() {
