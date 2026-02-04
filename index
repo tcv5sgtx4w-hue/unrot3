@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNROT 3</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+<body>
+
+<header>
+  <h1>🧠 UNROT</h1>
+  <p id="quote"></p>
+  <p id="streak"></p>
+</header>
+
+<section>
+  <h2>➕ Tarea</h2>
+  <input id="taskName" placeholder="Qué vas a hacer">
+  <input id="taskMinutes" type="number" placeholder="Minutos">
+  <button onclick="addTask()">Añadir</button>
+</section>
+
+<section>
+  <h2>📋 Pendientes</h2>
+  <ul id="taskList"></ul>
+</section>
+
+<section>
+  <h2>⏱️ Tiempo</h2>
+  <div class="progress"><div id="bar"></div></div>
+  <p id="timeAllowed"></p>
+  <button onclick="startUsage()">Usar tiempo</button>
+</section>
+
+<section>
+  <h2>🎯 Objetivos</h2>
+  <p id="dailyGoal"></p>
+  <p id="weeklyGoal"></p>
+</section>
+
+<section>
+  <h2>📊 Stats</h2>
+  <p>Total ganado: <span id="earned"></span></p>
+  <p>Total gastado: <span id="spent"></span></p>
+  <p>Mejor racha: <span id="bestStreak"></span></p>
+</section>
+
+<section>
+  <button onclick="exportData()">⬇ Exportar datos</button>
+  <input type="file" onchange="importData(event)">
+</section>
+
+<div id="lock" class="hidden">
+  <h2>🚫 BLOQUEADO</h2>
+  <p id="lockMsg"></p>
+</div>
+
+<script src="app.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js");
+}
+</script>
+
+</body>
+</html>
