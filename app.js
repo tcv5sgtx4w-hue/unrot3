@@ -106,7 +106,7 @@ function startUsage() {
   }
 
   if (data.time <= 0 || data.tasks.length === 0) {
-    lock("No tienes tiempo o tareas reales.");
+    hardlock("No tienes tiempo o tareas reales.");
     navigator.vibrate?.([200, 100, 200]);
     return;
   }
